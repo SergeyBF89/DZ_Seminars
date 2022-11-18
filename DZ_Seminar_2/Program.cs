@@ -16,78 +16,28 @@ else
 
 // Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет. Берем числа до 100000
 
-
-// int number = new Random().Next(100, 100001); // метод Random().Next(в скобках вводим случайные числа в нужном диапазоне, в данном случае от 100, до 1000)
-// Console.WriteLine(number);
-// //Console.WriteLine($"Число без второй цифры имеет вид: {number / 1000}{number % 10}"); // целочисленное деление {number / 100} и деление с остатком {number % 10}
-// int result = (number / 1000 | number % 10); 
-// Console.WriteLine($"Число без второй цифры имеет вид: {result}");
-
-
-// Console.WriteLine("Введите число: ");
-// string number = Console.ReadLine()!;
-
-// if(number) // проверяем длинну строковой переменной numbers,  != (неравно) 3
-// {
-//     Console.WriteLine("Введено не верное число"); 
-// }
-// else
-// {
-//     Console.WriteLine($"Третья цифра числа: {number[2]}"); // добавили индексы цифр введеного цисла [0] - 1 цифра, [2] - 3 цифра
-// }
-
-// {
-    
-    
-    
+/*
 Console.WriteLine("Введите число: ");
-int number = int.Parse(Console.ReadLine()!);
-if(number < 99)
+int number = Convert.ToInt32(Console.ReadLine());
+if (ThirdDigit(number) == -1)
+Console.WriteLine("Третьей цифры нет");
+else
+Console.WriteLine($"Третья цифра числа будет: {ThirdDigit(number)}");
+int ThirdDigit(int number)
 {
-    Console.WriteLine("Нет третьей цифры");
+int result = -1;
+if (number >= 100)
+{
+    while (number > 999)
+    {
+        number = number / 10;
+    }
+    result = number % 10;
 }
-if(number > 100)
-{
-    Console.WriteLine(number % 10);
-}   
-
-
-
-
-    
+    return result; 
+}
+*/ 
    
-
-
-
-
-    // готовое решение
-// int number = ReadInt("Введите число: ");
-// int count = number.ToString().Length;
-// Console.Write(MakeArray(number, count));
-// int ReadInt(string message)
-// {
-//     Console.Write(message);
-//     return Convert.ToInt32(Console.ReadLine());
-// }
-// int MakeArray(int a, int b)
-// {
-//     int result = 0;
-//     if (b < 3)
-//     {
-//         Console.WriteLine("Третьей цифры нет: ");
-//     }
-//     else
-//     {
-//         int c = 1;
-//         for (int i = b; i > 3; i--)
-//         {
-//             c = c * 10;
-//         }
-//         result = (a / c) % 10;
-//     }
-// return result;    
-// }
-
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным. 
 // Обязательна проверка на ввод числа <1 и >7
 
@@ -115,7 +65,7 @@ if (number == 7) Console.WriteLine("Воскресенье выходной де
 Console.WriteLine("Введите число: "); 
 int number = int.Parse(Console.ReadLine()!);
 if(number < 1 || number > 7)
-{
+{ 
     Console.WriteLine("Неверное число, такого дня нет");
 }
 if(number <= 5 && number > 0)
